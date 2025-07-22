@@ -1,5 +1,6 @@
 import React from "react";
 import SplashscreenPage from "./pages/splash_screen/page";
+import LoginPage from "./pages/public/login_page/page";
 
 function App() {
   const [isDisplaySplashScreen, setIsDisplaySplashScreen] =
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-4xl">Connectwave</h1>
+      <LoginPage />
     </div>
   );
 }

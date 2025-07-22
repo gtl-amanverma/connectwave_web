@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: "Krona One", sans-serif;
   font-weight: 400;
+  background-color: hsl(var(--background-primary));
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,4 +44,13 @@ code {
 @keyframes blinkingCursor{
   from { border-right-color: rgba(255,255,255,.75); }
   to { border-right-color: transparent; }
+}
+
+/* ==================================================================== */
+@layer base {
+  :root {
+    --background-primary: 216, 100%, 14%;
+  }
+
+  .dark {}
 }
