@@ -4,6 +4,7 @@ import CustomInput from "../../../../components/input/component";
 import { useLoginPageContext } from "../../../../contexts/sub_context/public/login_context";
 import LoginIllustration from "../../../../assets/illustrations/login_illustration/login_illustration";
 import CustomLabel from "../../../../components/label/component";
+import CustomButton from "../../../../components/button/component";
 
 const LoginLayout = () => {
   const { isMobile } = useLoginPageContext();
@@ -35,9 +36,26 @@ const LoginLayout = () => {
                 type="password"
               />
             </div>
-            <div className="w-full flex flex-row flex-wrap items-center justify-between gap-4">
-              <CustomLabel className="text-white cursor-pointer">Remember me!</CustomLabel>
-              <CustomLabel className="text-white cursor-pointer flex-shrink-0">Forgot password?</CustomLabel>
+            <div className="w-full flex flex-row flex-wrap items-center justify-between gap-4 mb-8">
+              <CustomLabel className="text-white cursor-pointer">
+                Remember me!
+              </CustomLabel>
+              <CustomLabel className="text-white cursor-pointer flex-shrink-0">
+                Forgot password?
+              </CustomLabel>
+            </div>
+            <div className="w-full flex flex-row flex-wrap items-center justify-center gap-4 mb-8">
+              <CustomButton>Login</CustomButton>
+            </div>
+            <div className="w-full flex items-center justify-center gap-2 mb-8">
+              <div className="w-full border-2 rounded-lg" />
+              <CustomLabel className="text-white flex-shrink-0">
+                Don't have account?
+              </CustomLabel>
+              <div className="w-full border-2 rounded-lg" />
+            </div>
+            <div className="w-full flex flex-row flex-wrap items-center justify-center gap-4 mb-8">
+              <CustomButton>Register Here...</CustomButton>
             </div>
           </div>
         </div>
