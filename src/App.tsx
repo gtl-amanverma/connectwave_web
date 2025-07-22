@@ -1,6 +1,6 @@
 import React from "react";
 import SplashscreenPage from "./pages/splash_screen/page";
-import LoginPage from "./pages/public/login_page/page";
+import RouteIndex from "./routes";
 
 function App() {
   const [isDisplaySplashScreen, setIsDisplaySplashScreen] =
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <LoginPage />
+      <RouteIndex />
     </div>
   );
 }
