@@ -4,7 +4,7 @@ import PublicContext from "../../../contexts/main_context/public";
 
 const PublicMainLayout = () => {
   return (
-    <PublicContext.Provider value={{ data: "Authenticated Data" }}>
+    <PublicContext.Provider value={{}}>
       <div className="w-full h-[calc(100vh-90px)]">
         <Outlet />
       </div>

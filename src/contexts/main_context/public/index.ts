@@ -1,12 +1,8 @@
 import { createContext, useContext } from "react";
 
-type TPublicContextType = {
-  data: string;
-};
+type TPublicContextType = {};
 
-const PublicContext = createContext<TPublicContextType>({
-  data: "data",
-});
+const PublicContext = createContext<TPublicContextType>({});
 
 export default PublicContext;
 export const usePublicContext = () => useContext(PublicContext);

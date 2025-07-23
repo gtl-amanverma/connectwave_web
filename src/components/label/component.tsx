@@ -25,7 +25,7 @@ const CustomLabel = ({ ...props }: props) => {
     <Label
       id={props.id}
       onClick={props.onClick}
-      className={cn("text-xs text-foregroud-primary", props.className)}
+      className={cn("text-xs text-foreground", props.className)}
       onMouseDown={props.onMouseDown}
       onMouseUp={props.onMouseUp}
       onMouseEnter={props.onMouseEnter}

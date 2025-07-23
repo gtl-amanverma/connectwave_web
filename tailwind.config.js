@@ -5,9 +5,16 @@ export const theme = {
   darkMode: ["class"],
   extend: {
     colors: {
-      background: {
-        primary: "hsl(var(--background-primary))",
-      },
+      background: "hsl(var(--background))",
+      foreground: "hsl(var(--foreground))",
+      border: "hsl(var(--border))",
+      inputBackground: "hsl(var(--inputBackground))",
+      inputForeground: "hsl(var(--inputForeground))",
+      btnBackground: "hsl(var(--btnBackground))",
+      btnForeground: "hsl(var(--btnForeground))",
+      dangerBackground: "hsl(var(--dangerBackground))",
+      dangerForeground: "hsl(var(--dangerForeground))",
+      dangerBorder: "hsl(var(--dangerBorder))",
     },
     keyframes: {
       slideFromRight: {

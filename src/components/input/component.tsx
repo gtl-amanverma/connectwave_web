@@ -28,7 +28,7 @@ type props = {
 const CustomInput = ({ ...props }: props) => {
   return (
     <LabelInputContainer>
-      <Label htmlFor={props.htmlFor} className={cn("text-white", props.className)}>{props.title}</Label>
+      <Label htmlFor={props.htmlFor} className={cn("text-foreground", props.className)}>{props.title}</Label>
       <Input
         id={props.id}
         placeholder={props.placeholder}
@@ -45,7 +45,7 @@ const CustomInput = ({ ...props }: props) => {
         onMouseOver={props.onMouseOver}
         onMouseOut={props.onMouseOut}
         value={props.value}
-        className={cn("bg-[#e0e0e0fd] outline-none focus-none border-none", props.className)}
+        className={cn("bg-bginput outline-none focus-none border-none", props.className)}
       />
     </LabelInputContainer>
   );

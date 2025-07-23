@@ -49,7 +49,16 @@ code {
 /* ==================================================================== */
 @layer base {
   :root {
-    --background-primary: 216, 100%, 14%;
+    --background: 220 20% 97%;
+    --foreground: 216, 100%, 14%;
+    --border: 216, 100%, 14%;
+    --inputBackground: 210, 16%, 93%;
+    --inputForeground: 216, 100%, 14%;
+    --btnBackground: 216, 100%, 14%;
+    --btnForeground: 220 20% 97%;
+    --dangerBackground: 0, 100%, 41%;
+    --dangerForeground: 0, 100%, 41%;
+    --dangerBorder: 0, 100%, 41%;
   }
 
   .dark {}

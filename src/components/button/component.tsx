@@ -12,9 +12,9 @@ type props = {
 
 const CustomButton = ({ ...props }: props) => {
   return (
-    <Button
+    <button
       className={cn(
-        "group/btn shadow-input relative flex h-10 w-full items-center justify-center space-x-2 rounded-md bg-gray-50 px-4 font-medium text-black dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_#262626]",
+        "group/btn relative flex w-full h-12 items-center justify-center space-x-2 rounded-md bg-btnBackground px-4 py-4 font-normal text-btnForeground",
         props.className
       )}
       type={props.type}
@@ -22,7 +22,7 @@ const CustomButton = ({ ...props }: props) => {
     >
       {props.children}
       <BottomGradient />
-    </Button>
+    </button>
   );
 };
 
