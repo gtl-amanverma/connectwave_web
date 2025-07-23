@@ -7,7 +7,7 @@ import CustomLabel from "../../../../components/label/component";
 import CustomButton from "../../../../components/button/component";
 
 const LoginLayout = () => {
-  const { isMobile } = useLoginPageContext();
+  const { isMobile, navigate } = useLoginPageContext();
 
   return (
     <ErrorBoundaryPage>
@@ -55,7 +55,7 @@ const LoginLayout = () => {
               <div className="w-full border-2 rounded-lg" />
             </div>
             <div className="w-full flex flex-row flex-wrap items-center justify-center gap-4 mb-8">
-              <CustomButton>Register Here...</CustomButton>
+              <CustomButton onClick={() => navigate("/public/user/register")}>Register Here...</CustomButton>
             </div>
           </div>
         </div>

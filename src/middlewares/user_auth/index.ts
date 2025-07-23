@@ -3,42 +3,63 @@ import {
   AuthResult,
   AuthResultType,
   DeviceTokenType,
+  LanguageType,
   TokenType,
   UserRoleType,
 } from "../../types/middlewares/user_auth/index";
 import { getCookie } from "../../utils/cookies";
 
 export const authMiddleware = (): AuthResult => {
-  const tokenFromCookie = getCookie("authToken") ?? null;
-  const userRoleFromCookie = getCookie("userRole") ?? null;
-  const deviceTokenFromCookie = getCookie("deviceToken") ?? null;
+  const tokenFromCookie = getCookie("authToken");
+  const userRoleFromCookie = getCookie("userRole");
+  const deviceTokenFromCookie = getCookie("token");
+  const langFromCookie = getCookie("lang");
 
-  const tokenValidation = TokenType.decode(tokenFromCookie);
-  const roleValidation = UserRoleType.decode(userRoleFromCookie);
-  const deviceTokenValidation = DeviceTokenType.decode(deviceTokenFromCookie);
+  const tokenValidation = tokenFromCookie
+    ? TokenType.decode(tokenFromCookie)
+    : undefined;
+  const roleValidation = userRoleFromCookie
+    ? UserRoleType.decode(userRoleFromCookie)
+    : undefined;
+  const deviceTokenValidation = deviceTokenFromCookie
+    ? DeviceTokenType.decode(deviceTokenFromCookie)
+    : undefined;
+  const langValidation = langFromCookie
+    ? LanguageType.decode(langFromCookie)
+    : undefined;
 
   const result: AuthResult = {
-    authToken: null,
-    userRole: null,
+    authToken:
+      tokenValidation && isRight(tokenValidation)
+        ? tokenValidation.right
+        : null,
+    userRole:
+      roleValidation && isRight(roleValidation)
+        ? roleValidation.right
+        : null,
+    deviceToken:
+      deviceTokenValidation && isRight(deviceTokenValidation)
+        ? deviceTokenValidation.right
+        : null,
+    lang:
+      langValidation && isRight(langValidation)
+        ? langValidation.right
+        : null,
     isAuthenticated: false,
-    deviceToken: null,
   };
 
-  if (isRight(tokenValidation) && isRight(roleValidation) && isRight(deviceTokenValidation)) {
-    result.authToken = tokenValidation.right;
-    result.userRole = roleValidation.right;
-    result.isAuthenticated = true;
-    result.deviceToken = deviceTokenValidation.right;
-  }
+  result.isAuthenticated = Boolean(
+    result.authToken || result.userRole || result.deviceToken || result.lang
+  );
+
   const validatedResult = AuthResultType.decode(result);
-  if (isRight(validatedResult)) {
-    return validatedResult.right;
-  } else {
-    return {
-      authToken: null,
-      userRole: null,
-      isAuthenticated: false,
-      deviceToken: null,
-    };
-  }
+  return isRight(validatedResult)
+    ? validatedResult.right
+    : {
+        authToken: null,
+        userRole: null,
+        isAuthenticated: false,
+        deviceToken: null,
+        lang: null,
+      };
 };

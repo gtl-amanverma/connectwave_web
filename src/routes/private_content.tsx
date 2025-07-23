@@ -7,19 +7,19 @@ type ProtectedRouteType = {
 };
 
 const PrivateRoute = (props: ProtectedRouteType) => {
-  const { authToken, deviceToken } = authMiddleware();
+  const { authToken, deviceToken, lang } = authMiddleware();
 
   if (props.isUserRequired) {
     return authToken ? (
       <Outlet />
     ) : (
-      <Navigate to={`/public/user/login?token=${deviceToken}`} />
+      <Navigate to={`/public/user/login?lang=${lang}&token=${deviceToken}`} />
     );
   } else {
     return authToken ? (
       <Outlet />
     ) : (
-      <Navigate to={`/public/user/login?token=${deviceToken}`} />
+      <Navigate to={`/public/user/login?lang=${lang}&token=${deviceToken}`} />
     );
   }
 };

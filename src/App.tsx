@@ -1,10 +1,12 @@
 import React from "react";
 import SplashscreenPage from "./pages/splash_screen/page";
 import RouteIndex from "./routes";
+import { useAutoAddQueryParams } from "./hooks/useAutoAddQueryParams";
 
 function App() {
   const [isDisplaySplashScreen, setIsDisplaySplashScreen] =
     React.useState(false);
+  useAutoAddQueryParams({ lang: "en", token: "123" });
 
   React.useEffect(() => {
     const timer = setTimeout(() => {

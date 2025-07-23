@@ -11,8 +11,8 @@ import LoginProvider from "../providers/public/login_provider/provider";
 // Pages
 
 const RouteIndex = () => {
-  const { deviceToken, userRole } = authMiddleware();
-  const [userURL, setUserURL] = useState<string>("manager");
+  const { deviceToken, userRole, lang } = authMiddleware();
+  const [userURL, setUserURL] = useState<string>("user");
   useEffect(() => {
     if (userRole === "admin") {
       setUserURL("admin");
@@ -31,12 +31,12 @@ const RouteIndex = () => {
             element={
               <Navigate
                 replace
-                to={`/private/user/auth/dashboard/${userURL}?lang=en&token=${deviceToken}`}
+                to={`/auth/dashboard/${userURL}?lang=${lang}&token=${deviceToken}`}
               />
             }
           />
           {/* <Route
-            path={`/private/user/auth/dashboard/*`}
+            path={`/auth/dashboard/*`}
             element={<AuthenticatedDashboardProvider />}
           /> */}
         </Route>
